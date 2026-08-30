@@ -10,7 +10,7 @@ public class UptimeResponse {
 		this.utcNow = utcNow;
 		this.serverUptimeSeconds = serverUptimeSeconds;
 	}
-	public String getutcServerStart() {return utcServerStart;}
-	public String getutcNow() {return utcNow;}
-	public double getserverUptimeSeconds() {return serverUptimeSeconds;}
+	public String getUtcServerStart() {return utcServerStart;}
+	public String getUtcNow() {return utcNow;}
+	public double getServerUptimeSeconds() {return serverUptimeSeconds;}
 }
