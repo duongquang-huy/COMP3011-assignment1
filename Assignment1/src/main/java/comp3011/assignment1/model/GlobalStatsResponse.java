@@ -1,14 +1,14 @@
 package comp3011.assignment1.model;
 
 public class GlobalStatsResponse {
-	private int inputTokens; // Total input tokens consumed
-	private int outputTokens; 	// Total output tokens produced
+	private long inputTokens; // Total input tokens consumed
+	private long outputTokens; 	// Total output tokens produced
 	
-	public GlobalStatsResponse(int inputTokens,int outputTokens) {
+	public GlobalStatsResponse(long inputTokens,long outputTokens) {
 		this.inputTokens = inputTokens;
 		this.outputTokens = outputTokens;
 	}
-	public int getOutputTokens() {return outputTokens;}
-	public int getInputTokens() {return inputTokens;}
+	public long getOutputTokens() {return outputTokens;}
+	public long getInputTokens() {return inputTokens;}
 
 }
