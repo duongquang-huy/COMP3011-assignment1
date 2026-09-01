@@ -43,14 +43,14 @@ public class AdminController {
 		}
 		shuttingDown = true;
 		
-		new Thread(() -> {
+		Thread.ofVirtual().start(() -> {
 		    try {
 		        Thread.sleep(100);
 		        System.exit(0);
 		    } catch (InterruptedException e) {
 		        Thread.currentThread().interrupt();
 		    }
-		}).start();
+		});
 		return ResponseEntity.status(202).body(new ShutdownResponse("Graceful shutdown requested."));
 	}
 	
