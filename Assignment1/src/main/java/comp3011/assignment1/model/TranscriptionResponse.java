@@ -1,5 +1,6 @@
 package comp3011.assignment1.model;
 
+//Returns transcribed text from OpenAI STT API
 public class TranscriptionResponse {
 	private String text;
 	
