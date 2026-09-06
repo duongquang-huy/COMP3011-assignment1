@@ -1,5 +1,5 @@
 package comp3011.assignment1.model;
-
+// Response model for GET /api/v1/admin/uptime
 public class UptimeResponse {
 	private String utcServerStart; // UTC time server started
 	private String utcNow; 	// Current time
