@@ -1,5 +1,7 @@
 package comp3011.assignment1.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -12,6 +14,8 @@ public class TranscriptionService {
 	private final StatsService statsService;
 	private final RestClient restClient;
 	private final String apiKey;
+	// Log to track service's work
+	private static final Logger logger = LoggerFactory.getLogger(TranscriptionService.class);
 	
 	public TranscriptionService(StatsService statsService) {
 		this.statsService =  statsService;
@@ -26,7 +30,9 @@ public class TranscriptionService {
 	@return
 	*/
 	public String transcribe(byte[] audioBytes, String filename) throws Exception {
+		logger.info("Transcribe for file: {}", filename);
 		if (apiKey == null) {
+			logger.error("API_KEY not set");
 			throw new IllegalStateException("API key is null");
 		}
 		// Build multi request
@@ -60,6 +66,7 @@ public class TranscriptionService {
 		int outputE = resJson.indexOf("}",outputS);
 		long outputTokens = Long.parseLong(resJson.substring(outputS, outputE).trim());		
 		statsService.addTokens(inputTokens, outputTokens);
+		logger.info("Transcription completed - Input Tokens: {}, OutputTokens: {}", inputTokens, outputTokens);
 		return text;
 	}
 }
