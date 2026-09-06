@@ -1,5 +1,6 @@
 package comp3011.assignment1.model;
 
+// Erorr Response for all API error cases
 public class ErrorResponse {
 	private String timestamp; // UTC timestamp at which the error 
 	private int status; // HTTP status code
